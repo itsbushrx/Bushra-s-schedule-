@@ -556,6 +556,228 @@ h1 {
 }
 
 
+
+/* SELF STUDY */
+
+.study-section {
+    animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.study-intro {
+    background: var(--forest);
+    color: white;
+    border-radius: 17px;
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+.study-intro .eyebrow {
+    color: #b8cfbd;
+    margin-bottom: 7px;
+}
+
+.study-intro h2 {
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.study-intro p {
+    color: #d6e0d8;
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+.study-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.study-option {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 19px;
+    box-shadow: 0 5px 18px rgba(55, 75, 62, 0.035);
+}
+
+.study-option.preferred {
+    border: 2px solid var(--sage);
+    padding: 18px;
+}
+
+.study-option-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.study-option-icon {
+    font-size: 23px;
+}
+
+.study-option-badge {
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.study-option h3 {
+    color: var(--forest);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.study-option-time {
+    color: var(--sage-dark);
+    font-size: 19px;
+    font-weight: 750;
+}
+
+.study-option-note {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.plan-heading {
+    margin: 25px 0 13px;
+}
+
+.plan-heading h2 {
+    color: var(--forest);
+    font-size: 19px;
+}
+
+.plan-heading p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.study-plan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.study-day-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 5px 18px rgba(55, 75, 62, 0.035);
+}
+
+.study-day-card.today {
+    border: 2px solid var(--sage);
+    padding: 17px;
+}
+
+.study-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.study-day-name {
+    color: var(--forest);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.study-today-mini {
+    color: var(--sage-dark);
+    background: var(--sage-light);
+    padding: 5px 7px;
+    border-radius: 5px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.study-slot {
+    border-radius: 11px;
+    padding: 13px;
+    margin-bottom: 9px;
+}
+
+.study-slot:last-child {
+    margin-bottom: 0;
+}
+
+.study-slot.self {
+    background: #f7faf7;
+    border: 1px solid #e6ece6;
+}
+
+.study-slot.paper {
+    background: #f8faf8;
+    border: 1px solid #e2e9e2;
+}
+
+.study-slot.empty-slot {
+    background: #fafbf9;
+    border: 1px dashed #dfe6df;
+}
+
+.study-slot-label {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+}
+
+.study-slot-title {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.study-slot-time {
+    color: var(--sage-dark);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.study-slot-note {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.study-note {
+    margin-top: 18px;
+    padding: 15px 17px;
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    border-radius: 11px;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+    .study-options,
+    .study-plan-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* MOBILE */
 
 @media (max-width: 700px) {
@@ -693,6 +915,13 @@ h1 {
             Weekly Schedule
         </button>
 
+        <button
+            class="tab"
+            onclick="showTab('study', this)">
+            📚 Self Study
+        </button>
+
+
     </div>
 
 
@@ -788,6 +1017,58 @@ h1 {
 
     </section>
 
+
+    <!-- SELF STUDY -->
+
+    <section
+        id="studySection"
+        class="hidden study-section">
+
+        <div class="section-heading">
+            <h2>Self Study Plan</h2>
+            <span>Study + past papers</span>
+        </div>
+
+        <div class="study-intro">
+            <div class="eyebrow">Your study rhythm</div>
+            <h2>Two ways to study. One weekly plan.</h2>
+            <p>Night Owl is your preferred study window. Early Bird is used only when your evening classes clash with it.</p>
+        </div>
+
+        <div class="study-options">
+            <div class="study-option preferred">
+                <div class="study-option-top">
+                    <div class="study-option-icon">🌙</div>
+                    <div class="study-option-badge">PREFERRED</div>
+                </div>
+                <h3>Night Owl</h3>
+                <div class="study-option-time">9:00 PM – 3:00 AM</div>
+                <div class="study-option-note">Your default self-study window</div>
+            </div>
+
+            <div class="study-option">
+                <div class="study-option-top">
+                    <div class="study-option-icon">🌅</div>
+                </div>
+                <h3>Early Bird</h3>
+                <div class="study-option-time">3:00 AM – 9:00 AM</div>
+                <div class="study-option-note">Used when Night Owl clashes with a class</div>
+            </div>
+        </div>
+
+        <div class="section-heading study-plan-heading">
+            <h2>Weekly Study Plan</h2>
+            <span>Two allocations per day</span>
+        </div>
+
+        <div class="study-plan-grid" id="studyPlanGrid"></div>
+
+        <div class="study-note">
+            <strong>📝 Past papers:</strong> ICT is scheduled for 1:00 PM–4:00 PM, while Business Studies and Accounting use 8:30 AM–11:30 AM to match your exam-time practice. Sunday is intentionally left open.
+        </div>
+
+    </section>
+
 </div>
 
 
@@ -865,6 +1146,85 @@ const days = [
     "Saturday",
     "Sunday"
 ];
+
+
+const studyPlan = {
+    Monday: {
+        self: {
+            title: "Night Owl",
+            time: "9:00 PM – 3:00 AM",
+            note: "Preferred window"
+        },
+        paper: {
+            title: "ICT Past Paper",
+            time: "1:00 PM – 4:00 PM"
+        }
+    },
+    Tuesday: {
+        self: {
+            title: "Night Owl",
+            time: "9:00 PM – 3:00 AM",
+            note: "Preferred window"
+        },
+        paper: {
+            title: "Business Studies Past Paper",
+            time: "8:30 AM – 11:30 AM"
+        }
+    },
+    Wednesday: {
+        self: {
+            title: "Night Owl",
+            time: "9:00 PM – 3:00 AM",
+            note: "Preferred window"
+        },
+        paper: {
+            title: "Accounting Past Paper",
+            time: "8:30 AM – 11:30 AM"
+        }
+    },
+    Thursday: {
+        self: {
+            title: "Night Owl",
+            time: "9:00 PM – 3:00 AM",
+            note: "Preferred window"
+        },
+        paper: {
+            title: "ICT Past Paper",
+            time: "1:00 PM – 4:00 PM"
+        }
+    },
+    Friday: {
+        self: {
+            title: "Night Owl",
+            time: "9:00 PM – 3:00 AM",
+            note: "Preferred window"
+        },
+        paper: {
+            title: "Business Studies Past Paper",
+            time: "8:30 AM – 11:30 AM"
+        }
+    },
+    Saturday: {
+        self: {
+            title: "Early Bird",
+            time: "3:00 AM – 9:00 AM",
+            note: "Night Owl clashes with the 8:30 PM ICT discussion"
+        },
+        paper: {
+            title: "Accounting Past Paper",
+            time: "8:30 AM – 11:30 AM"
+        }
+    },
+    Sunday: {
+        self: {
+            title: "Night Owl",
+            time: "9:00 PM – 3:00 AM",
+            note: "Preferred window"
+        },
+        paper: null
+    }
+};
+
 
 
 /* TODAY */
@@ -1050,7 +1410,7 @@ function displayToday() {
                 </h3>
 
                 <p>
-                    A good day to focus on AAT studies.
+                    A good day to focus on your studies.
                 </p>
 
             </div>
@@ -1220,7 +1580,7 @@ function buildWeekly() {
                         : `
 
                             <div class="study-day">
-                                AAT study day
+                                Study day
                             </div>
 
                           `
@@ -1228,6 +1588,93 @@ function buildWeekly() {
 
                 </div>
 
+            `;
+
+        }).join("");
+
+}
+
+
+
+/* SELF STUDY PLAN */
+
+function buildStudyPlan() {
+
+    const today = getToday();
+
+    const grid =
+        document.getElementById("studyPlanGrid");
+
+    grid.innerHTML =
+        days.map(day => {
+
+            const plan = studyPlan[day];
+
+            const paperHTML = plan.paper
+                ? `
+                    <div class="study-slot paper">
+                        <div class="study-slot-label">
+                            Past Paper
+                        </div>
+                        <div class="study-slot-title">
+                            ${plan.paper.title}
+                        </div>
+                        <div class="study-slot-time">
+                            ${plan.paper.time}
+                        </div>
+                    </div>
+                `
+                : `
+                    <div class="study-slot empty-slot">
+                        <div class="study-slot-label">
+                            Past Paper
+                        </div>
+                        <div class="study-slot-title">
+                            No past paper scheduled
+                        </div>
+                        <div class="study-slot-note">
+                            Kept free intentionally
+                        </div>
+                    </div>
+                `;
+
+            return `
+                <div class="study-day-card ${day === today ? "today" : ""}">
+
+                    <div class="study-day-header">
+                        <div class="study-day-name">
+                            ${day}
+                        </div>
+
+                        ${
+                            day === today
+                            ? `
+                                <div class="study-today-mini">
+                                    TODAY
+                                </div>
+                            `
+                            : ""
+                        }
+                    </div>
+
+                    <div class="study-slot self">
+                        <div class="study-slot-label">
+                            Self Study
+                        </div>
+                        <div class="study-slot-title">
+                            ${plan.self.title}
+                        </div>
+                        <div class="study-slot-time">
+                            ${plan.self.time}
+                        </div>
+                        <div class="study-slot-note">
+                            ${plan.self.note}
+                        </div>
+                    </div>
+
+                    ${paperHTML}
+
+                </div>
             `;
 
         }).join("");
@@ -1263,6 +1710,17 @@ function showTab(tab, button) {
             "hidden",
             tab !== "weekly"
         );
+
+    document
+        .getElementById("studySection")
+        .classList.toggle(
+            "hidden",
+            tab !== "study"
+        );
+
+    if (tab === "study") {
+        buildStudyPlan();
+    }
 
 }
 
@@ -1369,6 +1827,8 @@ displayToday();
 findNextClass();
 
 buildWeekly();
+
+buildStudyPlan();
 
 updateALCountdown();
 
